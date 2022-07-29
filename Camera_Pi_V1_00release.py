@@ -161,7 +161,6 @@ class acquisition(Thread) :
                                 img_g=np.uint8(image_tampon_g)
                                 img_r=np.uint8(image_tampon_r)
                                 image_brut=cv2.merge((img_b,img_g,img_r))
-                                print("BIN colour fini")
                         else :
                             if flag_BIN2 == False :
                                 image_brut=cv2.cvtColor(image_brut, cv2.COLOR_BGR2GRAY)
@@ -175,14 +174,12 @@ class acquisition(Thread) :
                                 image_tampon = np.int16(image_tampon) * 4
                                 image_tampon[image_tampon > 255] =255
                                 image_brut=np.uint8(image_tampon)
-                                print("BIN mono fini")
                         rawCapture.truncate(0)
                         if flag_sub_dark == True :
                             image_brut = image_brut - Master_Dark
                         flag_image_disponible = True
                         flag_acquisition_en_cours = False
                     except ValueError :
-                        #print("erreur buffer camera")
                         time.sleep(0.05)
             else :
                 if flag_stop_acquisition == False :
@@ -192,7 +189,6 @@ class acquisition(Thread) :
                         for frame in camera.capture_continuous(rawCapture, format='bgr', use_video_port=True) :
                             image_brut_tmp=frame.array
                             if flag_noir_blanc == 0 :
-                                #image_brut=cv2.cvtColor(image_brut_tmp, cv2.COLOR_BGR2RGB)
                                 if flag_BIN2 == False :
                                     image_brut=cv2.cvtColor(image_brut_tmp, cv2.COLOR_BGR2RGB)
                                 else :
@@ -217,7 +213,6 @@ class acquisition(Thread) :
                                     img_g=np.uint8(image_tampon_g)
                                     img_r=np.uint8(image_tampon_r)
                                     image_brut=cv2.merge((img_b,img_g,img_r))
-                                    print("BIN colour fini")
                             else :
                                 if flag_BIN2 == False :
                                     image_brut=cv2.cvtColor(image_brut_tmp, cv2.COLOR_BGR2GRAY)
@@ -231,7 +226,6 @@ class acquisition(Thread) :
                                     image_tampon = np.int16(image_tampon) * 4
                                     image_tampon[image_tampon > 255] =255
                                     image_brut=np.uint8(image_tampon)
-                                    print("BIN fini")
                             rawCapture.truncate(0)
                             if flag_sub_dark == True :
                                 image_brut = image_brut - Master_Dark
@@ -259,7 +253,6 @@ def refresh() :
         flag_premier_demarrage = False
         start_acquisition()
     if flag_image_disponible == True :
-        #print("refresh")
         if flag_stop_acquisition == False :
             application_filtrage()
             img_cam=PIL.Image.fromarray(image_brut)
