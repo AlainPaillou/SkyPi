@@ -47,7 +47,9 @@ sudo pip install picamera
 
 ## Run program
 ``` 
-python3
+python3 Camera_Pi_V1_00release.py
+
+You can also install IDLE for Python to load Camera_Pi_V1_00release.py, make changes and launch the program.
 ```
 
 You will also have to create 2 directories in you installation directory :
