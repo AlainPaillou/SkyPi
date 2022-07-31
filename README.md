@@ -14,6 +14,40 @@ You will also need :
     pillow
     picamera
 
+## Python installation 
+If you don't have Python3 on your package manager, add it in sources.list:
+`sudo add-apt-repository ppa:deadsnakes/ppa`
+
+``` 
+# Python 3
+sudo apt install python3.8
+
+# Pip
+sudo apt install python3-pip
+```
+You can check version with `python --version`
+
+## Packages installation
+``` 
+# openCV
+sudo apt install python3-opencv
+
+# numpy
+python3 -m pip install --upgrade numpy
+
+# Pillow
+python3 -m pip install --upgrade Pillow
+
+# Picamera
+sudo pip install picamera
+```
+[Picamera installation documentation](https://picamera.readthedocs.io/en/release-1.13/install.html)
+
+## Run program
+``` 
+python3
+```
+
 You will also have to create 2 directories in you installation directory :
 
     one for the images you will acquire
