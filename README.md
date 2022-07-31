@@ -27,6 +27,7 @@ sudo apt install python3-pip
 ```
 You can check version with `python --version`. 
 If command `python` execute python2.x, run all commands with `python3` like above. 
+[Python documentation install](https://docs.python-guide.org/starting/install3/linux/)
 
 ## Packages installation
 ``` 
